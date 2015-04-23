@@ -109,3 +109,4 @@ target/
 
 
 libs/secret.py
+libs/database_setup.py

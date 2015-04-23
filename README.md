@@ -3,6 +3,19 @@
 Designing and implementing a web-application to C.R.U.D. with a database, using `MySql Lite` and `Python2.7`.
 There are also endpoints for serving data as REST service.
 
+### PROJECT 5: set up the server
+
+```
+# ADD a user
+$> adduser grader
+
+# ADD the user to the sudo group
+$> adduser grader sudo
+
+# UPDATE all packages
+$> apt-get update
+```
+
 
 ### Running the app:
 
@@ -16,7 +29,9 @@ Install the necessary python libraries:
 $ pip install -r requirements.txt
 ```
 
-Add your GitHub OAUTH tokens in `libs\secret.py`.
+Add your GitHub OAUTH tokens in `libs\secret.py`.<br>
+Change your database username and password in `libs\database_setup.py`.
+
 
 Change directory to repository directory and:.
 
