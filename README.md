@@ -2,6 +2,8 @@
 
 ### PROJECT 5: set up the server
 
+VM IP: 54.201.214.146
+
 ```
 # ADD a user 'grader'
 $> adduser grader
@@ -64,6 +66,8 @@ $> sudo apt-get install apache2
 # 2. install mod_wsgi
 $> sudo apt-get install python-setuptools libapache2-mod-wsgi python-dev
 $> sudo service apache2 restart
+# 3. Check if wsgi is enabled
+$> sudo a2enmod wsgi 
 
 # INSTALL POSTgre
 # 1. install the package
@@ -75,10 +79,34 @@ $> sudo service postgresql status
 # 1. login as postgres user into psql to have administrative rights on the database
 $> su - postgres
 $> psql
+psql> CREATE DATABASE catalog;
+psql> CREATE USER catalog PASSWORD 'somepwd';
+psql> GRANT ALL ON DATABASE catalog TO catalog;
+
+# INSTALL git
+$> sudo apt-get install git
+
+# CLONE the app
+$> cd /var/www
+$> sudo git clone https://github.com/Mec-iS/nanodegree-sysadmin
+
+# Install PSYCOPG2
+# substitute X.X with your POSTgre version
+$> sudo apt-get install postgresql-server-dev-X.X
+$> sudo pip install psycopg2==2.6
+
+# RUN flask
+$> cd /var/www/nanodegree-sysadmin
+# install dependencies
+$> sudo python -m pip install -r requirements.txt
+# change user and password for POSTgre in 'libs\database_setup.py' 
+# change the github app's keys in 'libs\secrets.py'
+
 
 ```
 
 Useful Links:
+
 http://bullium.com/support/vim.html<br>
 https://help.ubuntu.com/community/UFW<br>
 
