@@ -84,7 +84,7 @@ def start_session(eng):
     return session
 
 
-string = 'postgresql://catalog:*******@localhost:5432/catalog'
+string = 'postgresql://******:*****@localhost:5432/catalog'
 # print string
 
 # Start engine
