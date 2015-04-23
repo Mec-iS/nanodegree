@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Restaurants App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+   <div class="container">
+   <div class="row">
+       <div class="col-md-10"></div>
+       {% if user %}
+       <div class="col-md-1">
+           <a href="{{ url_for("user") }}">Get user</a>
+       </div>
+       <div class="col-md-1">
+           <a href="{{ url_for("logout") }}">Logout</a>
+       </div>
+       {% else %}
+      <div class="col-md-1">
+           <a href="{{ url_for("login") }}">Login</a>
+       </div>
+       {% endif %}
+   </div>
+   {%  block body %}
+   {% endblock %}
+   </div>
+
+<style>
+    .row {
+        margin-top: 1em;
+    }
+    label {
+        color: #FFFFFF;
+    }
+</style>
+</body>
+</html>
