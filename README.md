@@ -179,7 +179,8 @@ $> python finalproject.py
 ```
 ### 4. Check if there is something missing 
 ```
-# as explained here: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+# check if everything is fine as explained 
+# here: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
 # at steps four and five:
 $> sudo service apache2 restart
 ```
@@ -189,6 +190,11 @@ Useful Links:
 
 http://bullium.com/support/vim.html<br>
 https://help.ubuntu.com/community/UFW<br>
+http://discussions.udacity.com/t/p5-how-i-got-through-it/15342<br>
+http://discussions.udacity.com/t/submission-format/4006/2<br>
+http://askubuntu.com/a/428034<br>
+http://www.ece.uci.edu/~chou/ssh-key.html<br>
+http://stackoverflow.com/q/21084791<br>
 
 
 
