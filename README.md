@@ -86,16 +86,31 @@ psql> GRANT ALL ON DATABASE catalog TO catalog;
 # INSTALL git
 $> sudo apt-get install git
 
-# CLONE the app
-$> cd /var/www
-$> sudo mkdir wsgi
-$> cd wsgi
-$> sudo git clone https://github.com/Mec-iS/nanodegree-sysadmin
-
 # Install PSYCOPG2
 # substitute X.X with your POSTgre version
 $> sudo apt-get install postgresql-server-dev-X.X
 $> sudo pip install psycopg2==2.6
+
+# CLONE the app
+$> cd /var/www
+$> sudo mkdir wsgi
+$> cd wsgi
+$> sudo git clone https://github.com/Mec-iS/nanodegree
+
+# Add the WSGI entrypoint
+# create the application.wsgi file in the wsgi/ directory with this content:
+
+#!/usr/bin/python
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0,"/var/www/wsgi/")
+
+from nanodegree.libs.secret import secret_key
+
+from nanodegree.finalproject import app as application
+application.secret_key = secret_key
+
 
 # RUN flask
 $> cd /var/www/nanodegree-sysadmin
@@ -106,9 +121,29 @@ $> sudo python -m pip install -r requirements.txt
 # 2. check if server runs properly
 $> python finalproject.py
 # if the server starts, everything is ok
-# 3. Create a virtual host and run a Flask app 
+# 3. Create a virtual host for Apache2 with this content:
+<VirtualHost *:80>
+                ServerName WSGIserver
+                ServerAdmin admin@mywebsite.com
+                WSGIScriptAlias / /var/www/wsgi/application.wsgi
+                <Directory /var/www/wsgi/nanodegree>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                Alias /static /var/www/wsgi/nanodegree/static
+                <Directory /var/www/wsgi/nanodegree/static/>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                LogLevel warn
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+#4. Check if there is something missing 
 # as explained here: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
-# at steps four and five
+# at steps four and five:
+$> sudo service apache2 restart
 
 
 ```

@@ -336,6 +336,6 @@ def error_401(error=401):
 
 
 if __name__ == '__main__':
-    app.secret_key = secret_key
-    app.debug = True
+#    app.secret_key = secret_key
+    app.debug = False
     app.run(host='127.0.0.1', port=5000)
