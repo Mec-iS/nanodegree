@@ -88,6 +88,8 @@ $> sudo apt-get install git
 
 # CLONE the app
 $> cd /var/www
+$> sudo mkdir wsgi
+$> cd wsgi
 $> sudo git clone https://github.com/Mec-iS/nanodegree-sysadmin
 
 # Install PSYCOPG2
@@ -97,10 +99,16 @@ $> sudo pip install psycopg2==2.6
 
 # RUN flask
 $> cd /var/www/nanodegree-sysadmin
-# install dependencies
+# 1. install dependencies
 $> sudo python -m pip install -r requirements.txt
-# change user and password for POSTgre in 'libs\database_setup.py' 
-# change the github app's keys in 'libs\secrets.py'
+# change user and password for POSTgre in 'libs/database_setup.py' 
+# change the github app's keys in 'libs/secrets.py'
+# 2. check if server runs properly
+$> python finalproject.py
+# if the server starts, everything is ok
+# 3. Create a virtual host and run a Flask app 
+# as explained here: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+# at steps four and five
 
 
 ```
@@ -109,31 +117,6 @@ Useful Links:
 
 http://bullium.com/support/vim.html<br>
 https://help.ubuntu.com/community/UFW<br>
-
-
-### Running the app:
-
-Git clone this repository:
-```
-$ git clone https://github.com/Mec-iS/nanodegree-fullstack-final
-```
-
-Install the necessary python libraries:
-```
-$ pip install -r requirements.txt
-```
-
-Add your GitHub OAUTH tokens in `libs\secret.py`.<br>
-Change your database username and password in `libs\database_setup.py`.
-
-
-Change directory to repository directory and:.
-
-* Run the `lotofmenus.py` script in `tests`, to create the database and tables, and load some mock data.
-
-* Run the server by running the `finalproject.py` script
-
-Visit `127.0.0.1:5000` on your browser.
 
 
 
