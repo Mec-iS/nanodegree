@@ -145,6 +145,7 @@ application.secret_key = secret_key
 ### RUN flask
 ```
 $> cd /var/www/wsgi/nanodegree
+```
 #### 1. install dependencies
 ```
 $> sudo python -m pip install -r requirements.txt
