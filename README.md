@@ -17,6 +17,7 @@ $> adduser grader sudo
 $> apt-get update
 $> apt-get upgrade
 # if you get any error during update try: '$> sudo dpkg --configure -a' to find out
+$> sudo apt-get dist-upgrade
 ```
 ### RUN ssh daemon on port 2200:
 #### 1. Set 'Port' in /etc/ssh/sshd_config to '2200'
