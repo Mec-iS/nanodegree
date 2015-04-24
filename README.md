@@ -188,7 +188,7 @@ $> sudo service apache2 restart
 ### make .git directory not accessible
 http://stackoverflow.com/a/17916515/2536357
 
-
+---
 Useful Links:
 
 http://bullium.com/support/vim.html<br>
