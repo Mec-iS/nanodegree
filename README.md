@@ -177,13 +177,16 @@ $> python finalproject.py
                 CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
-### 4. Check if there is something missing 
+#### 4. Check if there is something missing 
 ```
 # check if everything is fine as explained 
 # here: https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
 # at steps four and five:
 $> sudo service apache2 restart
 ```
+
+### make .git directory not accessible
+http://stackoverflow.com/a/17916515/2536357
 
 
 Useful Links:
